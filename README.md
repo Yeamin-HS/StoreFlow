@@ -1,13 +1,12 @@
 # 🛒 StoreFlow Backend (6thSense Challenge)
 
-This is a backend API built with **Node.js**, **TypeScript**, **Express**, and **MongoDB** to manage products and categories.
+Hellooo!! This is a backend API built with **Node.js**, **TypeScript**, **Express**, and **MongoDB** to manage products and categories.
 
 ## 🚀 Features
 
 - **Product Creation** with auto-generated unique product codes
 - **Code Generation Logic**:
   - Extract longest strictly increasing substrings from product name
-  - Combine with starting/ending indices
   - Prefix with an MD5 hash of the name
   - Format: `<hash>-<startIndex><substring><endIndex>`
 - **Category Association**: Each product is linked to a valid category
@@ -21,11 +20,11 @@ This is a backend API built with **Node.js**, **TypeScript**, **Express**, and *
 
 - Node.js + Express
 - TypeScript
-- MongoDB Atlas + Mongoose
+- MongoDB Atlas + Compass
 
 ## 📬  API Collection
 
-🔗 [Live Postman Collection](https://www.postman.com/yourusername/workspace/storeflow-backend/documentation/12345-abcdef)
+🔗 [Live Postman Collection ] <link> https://tinyurl.com/storeflowpostman </link>
 
 ## 🧪 Run Locally
 
