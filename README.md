@@ -30,7 +30,7 @@ This is a backend API built with **Node.js**, **TypeScript**, **Express**, and *
 ## 🧪 Run Locally
 
 ```bash
-git clone https://github.com/Yeamin-HS/StoreFlow-6thsense-.git
+git clone https://github.com/Yeamin-HS/StoreFlow.git
 cd StoreFlow
 npm install
 npm run dev
