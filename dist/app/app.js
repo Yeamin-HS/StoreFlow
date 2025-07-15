@@ -7,6 +7,8 @@ const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const storeflow_routes_1 = __importDefault(require("./StoreFlow/storeflow.routes"));
 app.use(express_1.default.json());
+
+
 // routes starting with '/store'
 app.use("/store", storeflow_routes_1.default);
 app.get("/", (req, res) => {

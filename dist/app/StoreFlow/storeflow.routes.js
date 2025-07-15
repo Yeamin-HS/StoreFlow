@@ -31,7 +31,7 @@ storeFlow.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 storeFlow.post("/create-product", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { name, description, price, discount, image, status, category } = req.body;
-        // Generate product code
+        
         const product_id = (0, generateProductCode_1.generateProductCode)(name);
         const db = yield mongodb_1.client.db("StoreFlow");
         const collection = yield db.collection("Product_store");
@@ -53,7 +53,7 @@ storeFlow.post("/create-product", (req, res) => __awaiter(void 0, void 0, void 0
         res.status(500).json({ message: "Error creating product" });
     }
 }));
-// update a product using the product id
+
 storeFlow.put("/update-product/:productId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { productId } = req.params; // Get the productId from the URL

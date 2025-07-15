@@ -17,14 +17,14 @@ storeFlow.get("/", async (req: Request, res: Response) => {
   });
 });
 
-// Create a product :-
+// Creating a product :-
 
 storeFlow.post("/create-product", async (req: Request, res: Response) => {
   try {
     const { name, description, price, discount, image, status, category } =
       req.body;
 
-    // Generate product code
+    
     const product_id = generateProductCode(name);
 
     const db = await client.db("StoreFlow");
@@ -49,7 +49,6 @@ storeFlow.post("/create-product", async (req: Request, res: Response) => {
   }
 });
 
-// update a product using the product id
 
 storeFlow.put("/update-product/:productId",async (req: Request, res: Response) => {
     try {
@@ -69,8 +68,8 @@ storeFlow.put("/update-product/:productId",async (req: Request, res: Response) =
       console.log(productId);
 
       const updateProduct = await collection.updateOne(
-        { product_id: productId }, // Find the product by product_id
-        { $set: { status, description, discount } } // Set the updated fields
+        { product_id: productId }, 
+        { $set: { status, description, discount } } 
       );
 
       res.status(200).json({
@@ -83,7 +82,6 @@ storeFlow.put("/update-product/:productId",async (req: Request, res: Response) =
   }
 );
 
-// category wise search:-
 
 storeFlow.get("/products", async (req: Request, res: Response) => {
   try {
@@ -93,17 +91,14 @@ storeFlow.get("/products", async (req: Request, res: Response) => {
 
     if (category) query.category = category;
 
-    // Apply name search filter (case-insensitive)
     if (search) query.name = { $regex: search, $options: "i" };
-
-    // Apply price range filters if provided
+    
     if (minPrice || maxPrice) {
       query.price = {};
       if (minPrice) query.price.$gte = parseFloat(minPrice as string); // Minimum price
       if (maxPrice) query.price.$lte = parseFloat(maxPrice as string); // Maximum price
     }
 
-    // Fetch products from the database
     const db = await client.db("StoreFlow");
     const collection = await db.collection("Product_store");
     const products = await collection.find(query).toArray();
